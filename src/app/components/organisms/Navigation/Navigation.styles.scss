@@ -47,6 +47,7 @@
     height: 32px;
     padding: 8px;
     gap: 8px;
+    flex-shrink: 0;
   }
 
   &__links {
@@ -87,6 +88,10 @@
 
       &.--active {
         background: var(--sidebar-accent);
+      }
+
+      svg {
+        flex-shrink: 0; // Prevent shrinking in flex containers
       }
     }
   }
