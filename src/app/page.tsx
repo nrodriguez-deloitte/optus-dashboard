@@ -3,7 +3,7 @@ import { Map } from "./components/organisms/Map";
 
 export default function Home() {
   return (
-    <main className="flex">
+    <main className="flex h-screen">
       <div className="navigation-sidebar max-w-3xs w-full">
         <Navigation id="navigation" />
       </div>
