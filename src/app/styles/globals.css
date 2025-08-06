@@ -59,8 +59,12 @@ body {
 
 .navigation-sidebar {
   background: var(--sidebar-background);
-  height: 100vh;
   border-right: 1px solid var(--border);
+}
+
+.layout {
+  display: flex;
+  height: 100vh; /* Full viewport height */
 }
 
 :root {
