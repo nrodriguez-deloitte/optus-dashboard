@@ -1,0 +1,14 @@
+:root {
+  --font-family-heading: "Inter", -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+
+  --text-xs: 12px;
+  --text-sm: 14px;
+
+  --sidebar-background: #fafafa;
+  --sidebar-accent: #f4f4f5;
+  --sidebar-ring: #e4e4e7;
+
+  --border: #e4e4e7;
+}
