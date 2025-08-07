@@ -8,24 +8,26 @@ import {
 } from "react";
 
 // Create the context
-interface IDataContext {
+export interface IOutageProps {
+  id: string;
+  title: string;
+  type: string;
+  severity: string;
+  stage: string;
+  created: string;
+  totalAffected: number;
+}
+
+interface IDataContextProps {
   LAST_UPDATED: string;
   TOTAL_ACTIVE_OUTAGES: number;
   ONGOING_ACMA_OUTAGES: number;
   CUSTOMER_IMPACTED: number;
-  OUTAGES: Array<{
-    id: string;
-    title: string;
-    type: string;
-    severity: string;
-    stage: string;
-    created: string;
-    totalAffected: number;
-  }>;
+  OUTAGES: Array<IOutageProps>;
 }
 const DataContext = createContext<
   | {
-      outageData: IDataContext;
+      outageData: IDataContextProps;
       loading: boolean;
       error: string | null;
       refetch: () => Promise<void>;
@@ -35,8 +37,8 @@ const DataContext = createContext<
 
 // Provider component
 export function DataProvider({ children }: { children: ReactNode }) {
-  const [outageData, setOutageData] = useState<IDataContext>(
-    {} as IDataContext
+  const [outageData, setOutageData] = useState<IDataContextProps>(
+    {} as IDataContextProps
   );
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
