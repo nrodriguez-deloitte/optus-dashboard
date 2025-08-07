@@ -3,7 +3,7 @@ import { INavigationProps } from "./INavigation.types";
 import Link from "next/link";
 
 export const Navigation = (props: INavigationProps) => {
-  const { id } = props;
+  const { id, activeTab } = props;
 
   return (
     <div id={id} className="navigation">
@@ -41,7 +41,9 @@ export const Navigation = (props: INavigationProps) => {
         <h3>Platform</h3>
         <ul className="w-full">
           <li>
-            <Link href="/" className="--active">
+            <Link
+              href="/"
+              className={activeTab === "overview" ? "--active" : ""}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -82,7 +84,9 @@ export const Navigation = (props: INavigationProps) => {
           </li>
 
           <li>
-            <Link href="/Outages">
+            <Link
+              href="/outages"
+              className={activeTab === "outages" ? "--active" : ""}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -102,7 +106,11 @@ export const Navigation = (props: INavigationProps) => {
           </li>
 
           <li>
-            <Link href="/communication-record">
+            <Link
+              href="/communication-record"
+              className={
+                activeTab === "communication-record" ? "--active" : ""
+              }>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
