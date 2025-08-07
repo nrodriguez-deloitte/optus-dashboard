@@ -71,7 +71,9 @@ export const OutageTabs = (props: IOutageTabsProps) => {
             <Badge className="bg-gray-100 text-gray-900 rounded-full">
               {toTitleCase(outage.stage)}
             </Badge>
-            <p>Total Affected: {outage.totalAffected}</p>
+            <p>
+              Total Affected: {outage.totalAffected.toLocaleString("en-GB")}
+            </p>
           </CardFooter>
         </Card>
       ));
