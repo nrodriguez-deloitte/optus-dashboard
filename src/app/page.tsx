@@ -10,7 +10,7 @@ export default function Home() {
     <DataProvider>
       <main className="flex h-full">
         <div className="navigation-sidebar max-w-3xs w-full">
-          <Navigation id="navigation" />
+          <Navigation id="navigation" activeTab="overview" />
         </div>
 
         <div className="content p-[24px] w-full">
