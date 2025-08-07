@@ -1,0 +1,30 @@
+.outage-tabs {
+}
+
+.outage-item {
+  h3 {
+    /* suble - semibold */
+    font-family: var(--font-family-heading, Inter);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+  }
+
+  p {
+    color: var(--muted-foreground, #71717a);
+
+    /* subtle-medium */
+    font-family: var(--font-family-heading, Inter);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+  }
+
+  &__header,
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+  }
+}
