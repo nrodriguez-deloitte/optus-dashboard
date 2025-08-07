@@ -4,6 +4,7 @@ import { IMapProps } from "./Map.types";
 import { useDataOutage } from "@/app/contexts/DataContext";
 import { formatCreationTime } from "@/lib/utils";
 import { GoogleMap } from "../../molecules/GoogleMap";
+import { OutageStats } from "../../molecules/OutageStats";
 
 export const Map = (props: IMapProps) => {
   const { id } = props;
@@ -27,40 +28,7 @@ export const Map = (props: IMapProps) => {
             </h2>
           </div>
 
-          <ul className="map__stats">
-            <li>
-              <Card className="map__stat">
-                {loading ? (
-                  <div className="animate-pulse h-6 w-full mb-2 rounded-full bg-gray-200" />
-                ) : (
-                  <span>3,120</span>
-                )}
-                Total active outages
-              </Card>
-            </li>
-
-            <li>
-              <Card className="map__stat">
-                {loading ? (
-                  <div className="animate-pulse h-6 w-full mb-2 rounded-full bg-gray-200" />
-                ) : (
-                  <span className="--red">15</span>
-                )}
-                Ongoing ACMA outages
-              </Card>
-            </li>
-
-            <li>
-              <Card className="map__stat">
-                {loading ? (
-                  <div className="animate-pulse h-6 w-full mb-2 rounded-full bg-gray-200" />
-                ) : (
-                  <span>139,012</span>
-                )}
-                Customer impacted
-              </Card>
-            </li>
-          </ul>
+          <OutageStats id="outage-stat" />
         </div>
 
         <Card className="map__map p-0 overflow-hidden">
