@@ -5,7 +5,7 @@ import "./OutageTabs.styles.scss";
 import { IOutageTabsProps } from "./IOutageTabs.types";
 import { OUTAGE_TABS } from "./OutageTabs.constants";
 import { formatCreationTime, toKebabCase, toTitleCase } from "@/lib/utils";
-import { DUMMY_CONSTANTS } from "@/lib/dummy-constants";
+
 import {
   Card,
   CardContent,
@@ -13,9 +13,12 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useDataOutage } from "@/app/contexts/DataContext";
 
 export const OutageTabs = (props: IOutageTabsProps) => {
   const { id } = props;
+
+  const { outageData, loading } = useDataOutage();
 
   const getSeverityVariant = (severity: string) => {
     switch (severity) {
@@ -41,8 +44,30 @@ export const OutageTabs = (props: IOutageTabsProps) => {
   };
 
   const getTabContent = () => {
+    if (loading) {
+      return (
+        <Card className="outage-item gap-2 w-1/2 md:w-1/2 xl:w-1/4">
+          <CardHeader className="outage-item__header">
+            <div className="animate-pulse h-5 w-full mb-1 rounded-full bg-gray-200" />
+
+            <div className="animate-pulse h-5 w-full mb-1 rounded-full bg-gray-200" />
+          </CardHeader>
+
+          <CardContent className="outage-item__content">
+            <div className="animate-pulse h-5 w-full mb-1 rounded-full bg-gray-200" />
+          </CardContent>
+
+          <CardFooter className="outage-item__footer">
+            <div className="animate-pulse h-5 w-full rounded-full bg-gray-200" />
+
+            <div className="animate-pulse h-5 w-full rounded-full bg-gray-200" />
+          </CardFooter>
+        </Card>
+      );
+    }
+
     return OUTAGE_TABS.map((tab, tabIndex) => {
-      const CONTENT = DUMMY_CONSTANTS.OUTAGES.filter(
+      const CONTENT = outageData.OUTAGES.filter(
         (outage) => outage.type === toKebabCase(tab.label)
       ).map((outage) => (
         <Card
