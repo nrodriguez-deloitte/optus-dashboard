@@ -3,6 +3,7 @@ import "./Map.styles.scss";
 import { IMapProps } from "./Map.types";
 import { useDataOutage } from "@/app/contexts/DataContext";
 import { formatCreationTime } from "@/lib/utils";
+import { GoogleMap } from "../../molecules/GoogleMap";
 
 export const Map = (props: IMapProps) => {
   const { id } = props;
@@ -62,7 +63,9 @@ export const Map = (props: IMapProps) => {
           </ul>
         </div>
 
-        <Card className="map__map"></Card>
+        <Card className="map__map p-0 overflow-hidden">
+          <GoogleMap center={{ lat: -25.7326, lng: 134.4895 }} zoom={4} />
+        </Card>
       </Card>
     </div>
   );
