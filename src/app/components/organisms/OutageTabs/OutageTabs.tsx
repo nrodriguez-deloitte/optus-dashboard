@@ -25,8 +25,10 @@ export const OutageTabs = (props: IOutageTabsProps) => {
     <div id={id} className="outage-tabs">
       <h2 className="sr-only">Outage Tabs</h2>
 
-      <Tabs defaultValue={toKebabCase(OUTAGE_TABS[0].label)} className="w-full">
-        <TabsList>
+      <Tabs
+        defaultValue={toKebabCase(OUTAGE_TABS[0].label)}
+        className="w-full gap-4">
+        <TabsList className="w-full">
           {OUTAGE_TABS.map((tab, tabIndex) => {
             return (
               <TabsTrigger key={tabIndex} value={toKebabCase(tab.label)}>
