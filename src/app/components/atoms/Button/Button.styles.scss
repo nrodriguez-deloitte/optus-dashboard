@@ -1,14 +1,15 @@
-.storybook-button {
-  display: inline-block;
+.button {
+  border-radius: var(--Radius-Component-radius-button, 6px);
+  display: flex;
+  height: var(--Size-size-button-md, 40px);
+  padding: var(--Padding-p-2, 8px) var(--Padding-p-4, 16px);
+  justify-content: center;
+  align-items: center;
+  gap: var(--Spacing-spacing-sm, 8px);
   cursor: pointer;
-  border: 0;
-  border-radius: 3em;
-  font-weight: 700;
-  line-height: 1;
-  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   &--primary {
-    background-color: #555ab9;
+    background: var(--primary);
     color: white;
   }
   &--secondary {
