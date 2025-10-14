@@ -1,9 +1,8 @@
+import { useDataOutage } from "@/app/contexts/DataContext";
 import { Card } from "@/components/ui/card";
 
 import "./OutageStats.styles.scss";
-
 import { IOutageStatProps } from "./OutageStats.types";
-import { useDataOutage } from "@/app/contexts/DataContext";
 
 /** Primary UI component for user interaction */
 export const OutageStats = (props: IOutageStatProps) => {
@@ -17,9 +16,7 @@ export const OutageStats = (props: IOutageStatProps) => {
           {loading ? (
             <div className="animate-pulse h-6 w-full mb-2 rounded-full bg-gray-200" />
           ) : (
-            <span>
-              {outageData.TOTAL_ACTIVE_OUTAGES.toLocaleString("en-GB")}
-            </span>
+            <span>{outageData.TOTAL_ACTIVE_OUTAGES.toLocaleString("en-GB")}</span>
           )}
           Total active outages
         </Card>
