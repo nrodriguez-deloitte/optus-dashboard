@@ -133,12 +133,14 @@ body {
   }
 }
 
-.landing {
+.main {
   background: url("/background-gradient.png") no-repeat center center;
   color: #164e63;
   height: 100vh;
-  padding-top: 32px;
+  padding: 32px 24px;
+}
 
+.landing {
   h2 {
     font-family: var(--font-family-heading, Inter);
     font-size: var(--text-4xl);
@@ -168,5 +170,15 @@ body {
 
   .landing__text {
     text-align: center;
+  }
+}
+
+.map-container {
+  background: url("/background-gradient.png") no-repeat center center;
+
+  h2 {
+    font-family: var(--font-family-heading, Inter);
+    font-size: var(--text-2xl);
+    font-weight: 600;
   }
 }
