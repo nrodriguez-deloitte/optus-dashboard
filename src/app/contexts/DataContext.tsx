@@ -1,11 +1,6 @@
+import { createContext, useContext, ReactNode, useState, useEffect } from "react";
+
 import { DUMMY_CONSTANTS } from "@/lib/dummy-constants";
-import {
-  createContext,
-  useContext,
-  ReactNode,
-  useState,
-  useEffect,
-} from "react";
 
 // Create the context
 export interface IOutageProps {
@@ -37,9 +32,7 @@ const DataContext = createContext<
 
 // Provider component
 export function DataProvider({ children }: { children: ReactNode }) {
-  const [outageData, setOutageData] = useState<IDataContextProps>(
-    {} as IDataContextProps
-  );
+  const [outageData, setOutageData] = useState<IDataContextProps>({} as IDataContextProps);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -72,7 +65,8 @@ export function DataProvider({ children }: { children: ReactNode }) {
         loading,
         error,
         refetch: fetchOutageData,
-      }}>
+      }}
+    >
       {children}
     </DataContext.Provider>
   );
