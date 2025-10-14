@@ -1,4 +1,4 @@
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import { INavigationProps } from "./INavigation.types";
 import "./Navigation.styles.scss";
@@ -7,6 +7,7 @@ import NavigationButton from "../../atoms/NavigationButton";
 export const Navigation = (props: INavigationProps) => {
   const { id } = props;
   const pathname = usePathname();
+  const router = useRouter();
 
   const NavigationItems = [
     {
@@ -136,8 +137,10 @@ export const Navigation = (props: INavigationProps) => {
               <NavigationButton
                 icon={item.renderIcon(isActive)}
                 aria-label={item.ariaLabel}
-                href={item.href}
                 active={isActive}
+                onButtonClick={() => {
+                  router.push(item.href);
+                }}
               >
                 {item.label}
               </NavigationButton>
