@@ -52,7 +52,8 @@ const eslintConfig = [
       "build/**",
       "next-env.d.ts",
       "src/components/**",
-      "src/stories/**", // Added to ignore all files in src/stories
+      "src/stories/**",
+      "**/*.stories.*",
     ],
   },
 ];

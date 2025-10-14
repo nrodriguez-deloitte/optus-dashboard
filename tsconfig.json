@@ -23,6 +23,14 @@
     }
   },
   "include": ["src", "next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"],
+  "exclude": [
+    "node_modules/**",
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+    "src/components/**",
+    "src/stories/**" // Added to ignore all files in src/stories
+  ],
   "extends": "@oninross/clean-code/configs/tsconfig.json"
 }
