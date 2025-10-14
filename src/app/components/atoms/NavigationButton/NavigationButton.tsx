@@ -10,9 +10,9 @@ const NavigationButton: React.FC<NavigationButtonProps> = ({
   icon,
   // href,
   "aria-label": ariaLabel,
+  onButtonClick,
   ...rest
 }) => {
-  console.log(icon);
   return (
     <button
       className={`navigation-button ${
@@ -21,6 +21,7 @@ const NavigationButton: React.FC<NavigationButtonProps> = ({
       aria-label={ariaLabel}
       aria-current={active ? "page" : undefined}
       disabled={disabled}
+      onClick={onButtonClick}
       {...rest}
     >
       <span className="navigation-button__label">{children}</span>

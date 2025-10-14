@@ -3,6 +3,6 @@ export interface NavigationButtonProps {
   active?: boolean;
   disabled?: boolean;
   icon?: React.ReactNode;
-  href?: string;
   "aria-label"?: string;
+  onButtonClick?: () => void;
 }
