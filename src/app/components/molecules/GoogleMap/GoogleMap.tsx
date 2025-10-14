@@ -1,10 +1,6 @@
-import "./GoogleMap.styles.scss";
+import { GoogleMap as ReactGoogleMap, useLoadScript } from "@react-google-maps/api";
 
-import {
-  GoogleMap as ReactGoogleMap,
-  Marker,
-  useLoadScript,
-} from "@react-google-maps/api";
+import "./GoogleMap.styles.scss";
 import { IGoogleMapProps } from "./IGoogleMap.types";
 
 const containerStyle = {
