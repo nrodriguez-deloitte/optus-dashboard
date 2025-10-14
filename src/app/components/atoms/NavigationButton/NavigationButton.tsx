@@ -8,7 +8,7 @@ const NavigationButton: React.FC<NavigationButtonProps> = ({
   active = false,
   disabled = false,
   icon,
-  href,
+  // href,
   "aria-label": ariaLabel,
   ...rest
 }) => {
