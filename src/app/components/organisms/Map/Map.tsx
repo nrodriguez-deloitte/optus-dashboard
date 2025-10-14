@@ -21,9 +21,7 @@ export const Map = (props: IMapProps) => {
               {loading ? (
                 <div className="animate-pulse h-5 w-full rounded-full bg-gray-200" />
               ) : (
-                <span>
-                  Last updated at {formatCreationTime(outageData.LAST_UPDATED)}
-                </span>
+                <span>Last updated at {formatCreationTime(outageData.LAST_UPDATED)}</span>
               )}
             </h2>
           </div>
