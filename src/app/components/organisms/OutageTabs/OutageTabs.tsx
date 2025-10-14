@@ -1,19 +1,13 @@
 import React from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-import "./OutageTabs.styles.scss";
-import { IOutageTabsProps } from "./IOutageTabs.types";
-import { OUTAGE_TABS } from "./OutageTabs.constants";
-import { toKebabCase } from "@/lib/utils";
-
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
 
 import { useDataOutage } from "@/app/contexts/DataContext";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { toKebabCase } from "@/lib/utils";
+
+import { IOutageTabsProps } from "./IOutageTabs.types";
+import { OUTAGE_TABS } from "./OutageTabs.constants";
+import "./OutageTabs.styles.scss";
 import { OutageCard } from "../../molecules/OutageCard";
 
 export const OutageTabs = (props: IOutageTabsProps) => {
@@ -25,9 +19,7 @@ export const OutageTabs = (props: IOutageTabsProps) => {
     <div id={id} className="outage-tabs">
       <h2 className="sr-only">Outage Tabs</h2>
 
-      <Tabs
-        defaultValue={toKebabCase(OUTAGE_TABS[0].label)}
-        className="w-full gap-4">
+      <Tabs defaultValue={toKebabCase(OUTAGE_TABS[0].label)} className="w-full gap-4">
         <TabsList className="w-full">
           {OUTAGE_TABS.map((tab, tabIndex) => {
             return (
@@ -66,7 +58,8 @@ export const OutageTabs = (props: IOutageTabsProps) => {
               <TabsContent
                 key={tabIndex}
                 value={toKebabCase(tab.label)}
-                className="outage-tabs__content">
+                className="outage-tabs__content"
+              >
                 {CONTENT}
               </TabsContent>
             );
