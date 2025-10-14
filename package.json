@@ -8,7 +8,15 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "check:format": "prettier --check './**/*.{js,jsx,ts,tsx,json}' --ignore-path .prettierignore --config ./.prettierrc.js",
+    "check:lint": "next lint",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,json}' --ignore-path .prettierignore --config ./.prettierrc.js",
+    "type-check": "tsc --noEmit",
+    "clean-code:fix": "npx @oninross/clean-code fix",
+    "clean-code:check": "npx @oninross/clean-code check",
+    "clean-code:test": "npx @oninross/clean-code test",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
@@ -27,6 +35,7 @@
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.0",
     "@eslint/eslintrc": "^3",
+    "@oninross/clean-code": "^1.0.7",
     "@storybook/addon-a11y": "^9.1.1",
     "@storybook/addon-docs": "^9.1.1",
     "@storybook/addon-onboarding": "^9.1.1",
