@@ -1,15 +1,9 @@
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import { IOutageProps } from "@/app/contexts/DataContext";
 import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { formatCreationTime, toTitleCase } from "@/lib/utils";
 
 import "./OutageCard.styles.scss";
-
-import { IOutageProps } from "@/app/contexts/DataContext";
-import { formatCreationTime, toTitleCase } from "@/lib/utils";
 
 /** Primary UI component for user interaction */
 export const OutageCard = (outage: IOutageProps) => {
@@ -45,9 +39,7 @@ export const OutageCard = (outage: IOutageProps) => {
       </CardContent>
 
       <CardFooter className="outage-item__footer">
-        <Badge className="bg-gray-100 text-gray-900 rounded-full">
-          {toTitleCase(stage)}
-        </Badge>
+        <Badge className="bg-gray-100 text-gray-900 rounded-full">{toTitleCase(stage)}</Badge>
 
         <p>Total Affected: {totalAffected.toLocaleString("en-GB")}</p>
       </CardFooter>
