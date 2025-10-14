@@ -6,10 +6,10 @@ import AiChat from "./components/molecules/AiChat";
 import { Navigation } from "./components/organisms/Navigation";
 import { DataProvider } from "./contexts/DataContext";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <DataProvider>
-      <main className="landing">
+      <main className="main landing">
         <Navigation id="navigation" activeTab="overview" />
 
         <section className="landing__content">
