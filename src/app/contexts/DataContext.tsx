@@ -15,9 +15,9 @@ export interface IOutageProps {
 
 interface IDataContextProps {
   LAST_UPDATED: string;
-  TOTAL_ACTIVE_OUTAGES: number;
+  ACMA_OUTAGES: number;
   ONGOING_ACMA_OUTAGES: number;
-  CUSTOMER_IMPACTED: number;
+  UNPLANNED_OUTAGES: number;
   OUTAGES: Array<IOutageProps>;
 }
 const DataContext = createContext<
