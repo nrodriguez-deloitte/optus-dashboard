@@ -29,5 +29,10 @@
     text-align: center;
     font-weight: var(--font-weight-font-normal, 400);
     order: 2;
+
+    .navigation-button--active & {
+      color: #083344;
+      font-weight: 500;
+    }
   }
 }

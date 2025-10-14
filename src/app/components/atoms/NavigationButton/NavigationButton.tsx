@@ -24,8 +24,6 @@ const NavigationButton: React.FC<NavigationButtonProps> = ({
       {...rest}
     >
       <span className="navigation-button__label">{children}</span>
-
-      {/* // * TODO: Add icon rendering */}
       {icon && <span className="navigation-button__icon">{icon}</span>}
     </button>
   );
