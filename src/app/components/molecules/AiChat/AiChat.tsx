@@ -3,7 +3,7 @@ import React from "react";
 import "./AiChat.styles.scss";
 import { AiChatProps } from "./AiChat.types";
 
-const AiChat: React.FC<AiChatProps> = ({ children }) => {
+const AiChat: React.FC<AiChatProps> = () => {
   return (
     <div className="ai-chat">
       <input

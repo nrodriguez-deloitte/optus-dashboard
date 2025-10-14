@@ -1,10 +1,9 @@
 import { useDataOutage } from "@/app/contexts/DataContext";
-
-import { ICommunicationRecordsProps } from "./CommunicationRecords.types";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 import "./CommunicationRecords.styles.scss";
+import { ICommunicationRecordsProps } from "./CommunicationRecords.types";
 import { Button } from "../../atoms/Button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 export const CommunicationRecords = (props: ICommunicationRecordsProps) => {
   const { id } = props;

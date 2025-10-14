@@ -1,8 +1,6 @@
 "use client";
 
-import { OutageStats } from "../components/molecules/OutageStats";
 import { Navigation } from "../components/organisms/Navigation";
-import { OutageTabs } from "../components/organisms/OutageTabs";
 import { DataProvider } from "../contexts/DataContext";
 
 export default function Home() {

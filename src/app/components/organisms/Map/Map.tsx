@@ -1,8 +1,9 @@
+import { useDataOutage } from "@/app/contexts/DataContext";
 import { Card } from "@/components/ui/card";
+import { formatCreationTime } from "@/lib/utils";
+
 import "./Map.styles.scss";
 import { IMapProps } from "./Map.types";
-import { useDataOutage } from "@/app/contexts/DataContext";
-import { formatCreationTime } from "@/lib/utils";
 import { GoogleMap } from "../../molecules/GoogleMap";
 import { OutageStats } from "../../molecules/OutageStats";
 
