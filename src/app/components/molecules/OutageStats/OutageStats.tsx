@@ -16,17 +16,6 @@ export const OutageStats = (props: IOutageStatProps) => {
           {loading ? (
             <div className="animate-pulse h-6 w-full mb-2 rounded-full bg-gray-200" />
           ) : (
-            <span>{outageData.TOTAL_ACTIVE_OUTAGES.toLocaleString("en-GB")}</span>
-          )}
-          Total active outages
-        </Card>
-      </li>
-
-      <li>
-        <Card className="outage-stats__card">
-          {loading ? (
-            <div className="animate-pulse h-6 w-full mb-2 rounded-full bg-gray-200" />
-          ) : (
             <span className="--red">15</span>
           )}
           Ongoing ACMA outages
@@ -38,9 +27,20 @@ export const OutageStats = (props: IOutageStatProps) => {
           {loading ? (
             <div className="animate-pulse h-6 w-full mb-2 rounded-full bg-gray-200" />
           ) : (
-            <span>{outageData.CUSTOMER_IMPACTED.toLocaleString("en-GB")}</span>
+            <span>{outageData.ACMA_OUTAGES.toLocaleString("en-GB")}</span>
           )}
-          Customer impacted
+          Services impacted current ACMA Outages
+        </Card>
+      </li>
+
+      <li>
+        <Card className="outage-stats__card">
+          {loading ? (
+            <div className="animate-pulse h-6 w-full mb-2 rounded-full bg-gray-200" />
+          ) : (
+            <span>{outageData.UNPLANNED_OUTAGES.toLocaleString("en-GB")}</span>
+          )}
+          Current unplanned outages
         </Card>
       </li>
     </ul>
