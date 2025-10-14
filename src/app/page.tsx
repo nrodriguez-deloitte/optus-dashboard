@@ -1,25 +1,31 @@
 "use client";
 
+import Image from "next/image";
+
+import AiChat from "./components/molecules/AiChat";
 import { Navigation } from "./components/organisms/Navigation";
-import { Map } from "./components/organisms/Map";
-import { OutageTabs } from "./components/organisms/OutageTabs";
 import { DataProvider } from "./contexts/DataContext";
 
 export default function Home() {
   return (
     <DataProvider>
-      <main className="flex h-full">
-        <div className="navigation-sidebar max-w-3xs w-full">
-          <Navigation id="navigation" activeTab="overview" />
-        </div>
+      <main className="landing">
+        <Navigation id="navigation" activeTab="overview" />
 
-        <div className="content p-[24px] w-full">
-          <Map id="map" />
+        <section className="landing__content">
+          <Image src="/logo-ai.png" alt="AI Logo" width={420} height={263} />
 
-          <OutageTabs id="outage-tabs" />
-        </div>
+          <div className="landing__text">
+            <h2>Explore network outages</h2>
 
-        {/* <div>Side Panel</div> */}
+            <p>
+              Use AI to find details on both open and resolved outages, along with associated
+              communication notifications.
+            </p>
+
+            <AiChat />
+          </div>
+        </section>
       </main>
     </DataProvider>
   );
