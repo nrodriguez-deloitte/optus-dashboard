@@ -1,15 +1,13 @@
 "use client";
 
-import { OutageStats } from "../components/molecules/OutageStats";
 import { Navigation } from "../components/organisms/Navigation";
-import { OutageTabs } from "../components/organisms/OutageTabs";
 import { DataProvider } from "../contexts/DataContext";
 
 export default function Home() {
   return (
     <DataProvider>
       <main className="h-full">
-        <Navigation id="navigation" activeTab="outages" />
+        <Navigation id="navigation" activeTab="communication-record" />
       </main>
     </DataProvider>
   );
