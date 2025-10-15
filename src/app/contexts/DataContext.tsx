@@ -2,22 +2,41 @@ import { createContext, useContext, ReactNode, useState, useEffect } from "react
 
 import { DUMMY_CONSTANTS } from "@/lib/dummy-constants";
 
-// Create the context
+export interface OutageTimelineEvent {
+  status: string;
+  time: string;
+  stage: string;
+  severity: string;
+  consumers?: number;
+  affected?: number;
+  commsCompliance?: Array<{
+    channel: string;
+    time: string;
+    complete: boolean;
+  }>;
+}
+
 export interface IOutageProps {
   incidentId: string;
-  title: string;
+  communicationId: string;
+  status: string;
   type: string;
   severity: string;
   stage: string;
+  region: string;
   identifiedAt: string;
+  lastUpdate: string;
+  title: string;
+  description: string;
+  causeOfOutage: string;
   totalAffected: number;
+  outageTimeline: Array<OutageTimelineEvent>;
 }
 
 export interface ICommsRecordProps {
   customerId: string;
-  outageId: string;
+  incidentId: string;
   channel: string;
-  templateUsed: string;
   sentAt: string;
   region: string;
   status: string;
@@ -52,7 +71,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch("https://mock.httpstatus.io/200"); // Update this to your actual endpoint
+      const res = await fetch("https://mock.httpstatus.io/200");
       if (!res.ok) throw new Error("Failed to fetch users");
       // const data = await res.json();
 
