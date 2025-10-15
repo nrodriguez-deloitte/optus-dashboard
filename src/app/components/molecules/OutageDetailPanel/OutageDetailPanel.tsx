@@ -1,4 +1,9 @@
+import Link from "next/link";
 import React from "react";
+
+import { useDataOutage } from "@/app/contexts/DataContext";
+import { Badge } from "@/components/ui/badge";
+import { formatCreationTime, getSeverityVariant, isoToDateTime, toTitleCase } from "@/lib/utils";
 
 import "./OutageDetailPanel.styles.scss";
 import { OutageDetailPanelProps } from "./OutageDetailPanel.types";
@@ -8,6 +13,21 @@ const OutageDetailPanel: React.FC<OutageDetailPanelProps> = ({
   open = false,
   onClose,
 }) => {
+  const { outageData, loading } = useDataOutage();
+  const _incidentId = incidentId;
+
+  if (loading) {
+    return null;
+  }
+  const incidentData = outageData?.OUTAGES.find((outage) => outage.incidentId === _incidentId);
+
+  if (!incidentData) {
+    return null;
+  }
+
+  const { title, severity, region, totalAffected, description, stage, outageTimeline } =
+    incidentData;
+
   return (
     <>
       <div
@@ -29,131 +49,128 @@ const OutageDetailPanel: React.FC<OutageDetailPanelProps> = ({
         >
           <span className="outageDetailPanel__closeIcon" aria-hidden="true" />
         </button>
+
         <header className="outageDetailPanel__header">
-          <h2 className="outageDetailPanel__title">Outage {incidentId}</h2>
+          <h2 className="outageDetailPanel__title">Outage {_incidentId}</h2>
           <span className="outageDetailPanel__updated" aria-live="polite">
-            Last updated 17:52
+            Last updated {isoToDateTime(incidentData?.lastUpdate)}
           </span>
         </header>
+
         <div className="outageDetailPanel__actions">
-          <button
+          <Link
             className="outageDetailPanel__button outageDetailPanel__button--primary"
             aria-label="View communication records"
+            href={`/records?incidentId=${incidentData?.incidentId}`}
           >
             <span className="outageDetailPanel__buttonIcon" aria-hidden="true" />
             <span className="outageDetailPanel__buttonText">View comms records</span>
-          </button>
-          <button
+          </Link>
+
+          <Link
             className="outageDetailPanel__button outageDetailPanel__button--secondary"
             aria-label="Open in Jira"
+            href={`https://www.atlassian.com/software/jira`}
           >
             <span className="outageDetailPanel__buttonIcon" aria-hidden="true" />
             <span className="outageDetailPanel__buttonText">Open in Jira</span>
-          </button>
+          </Link>
         </div>
+
         <section className="outageDetailPanel__card" aria-label="Outage summary">
           <div className="outageDetailPanel__cardContent">
             <div className="outageDetailPanel__cardHeader">
-              <h3 className="outageDetailPanel__cardTitle">Fibre Disruption</h3>
+              <h3 className="outageDetailPanel__cardTitle">{title}</h3>
+
               <div className="outageDetailPanel__badges">
-                <span className="outageDetailPanel__badge outageDetailPanel__badge--major">
-                  Major
-                </span>
-                <span className="outageDetailPanel__badge outageDetailPanel__badge--stage">
-                  Stage 2
-                </span>
+                {severity && (
+                  <Badge className={`rounded-full ${getSeverityVariant(severity)}`}>
+                    {toTitleCase(severity)}
+                  </Badge>
+                )}
+
+                {stage && (
+                  <Badge className="bg-gray-100 text-gray-900 rounded-full">
+                    {toTitleCase(stage)}
+                  </Badge>
+                )}
+
                 <span className="outageDetailPanel__badge outageDetailPanel__badge--location">
                   <span className="outageDetailPanel__badgeIcon" aria-hidden="true" />
-                  Parramatta, NSW
+                  {region}
                 </span>
               </div>
             </div>
+
             <div className="outageDetailPanel__cardMeta">
-              <span className="outageDetailPanel__metaId">IM1830485</span>
-              <span className="outageDetailPanel__metaAffected">120,000 services affected</span>
+              <span className="outageDetailPanel__metaId">{_incidentId}</span>
+              <span className="outageDetailPanel__metaAffected">
+                {totalAffected.toLocaleString("en-GB")} services affected
+              </span>
             </div>
-            <div className="outageDetailPanel__cardDesc">
-              <p>
-                Multiple SIP KPI rate increased and observed 17K VOLTE calls failures (17% from
-                3.5%) traversing towards Rochedale vSBG, NAT
-              </p>
-              <p>
-                Trunk configuration between cisco switch rdl4cr2.nx and mobile core PE’s got
-                modified during change C301384
-              </p>
-            </div>
+
+            {description && (
+              <div className="outageDetailPanel__cardDesc">
+                <p>{description}</p>
+              </div>
+            )}
           </div>
         </section>
 
         <section className="outageDetailPanel__timeline" aria-label="Outage timeline">
           <div className="outageDetailPanel__timelineHeader">
             <h3 className="outageDetailPanel__timelineTitle">Outage timeline</h3>
-            <span className="outageDetailPanel__timelineUpdated">Identified 6 hours ago</span>
+            <span className="outageDetailPanel__timelineUpdated">
+              {formatCreationTime(outageTimeline[0].time)}
+            </span>
           </div>
+
           <ol className="outageDetailPanel__timelineList">
-            <li className="outageDetailPanel__timelineItem">
-              <div
-                className="outageDetailPanel__timelineIcon outageDetailPanel__timelineIcon--success"
-                aria-hidden="true"
-              />
-              <div className="outageDetailPanel__timelineContent">
-                <div className="outageDetailPanel__timelineRow">
-                  <span className="outageDetailPanel__timelineLabel">Outage identified</span>
-                  <span className="outageDetailPanel__timelineBadge outageDetailPanel__timelineBadge--significant">
-                    Significant
-                  </span>
+            {outageTimeline.map((item, idx) => (
+              <li key={idx} className="outageDetailPanel__timelineItem">
+                <div
+                  className="outageDetailPanel__timelineIcon outageDetailPanel__timelineIcon--success"
+                  aria-hidden="true"
+                />
+
+                <div className="outageDetailPanel__timelineContent">
+                  <div className="outageDetailPanel__timelineRow">
+                    <span className="outageDetailPanel__timelineLabel">{item.status}</span>
+                    {item.severity && (
+                      <Badge className={`rounded-full ${getSeverityVariant(item.severity)}`}>
+                        {toTitleCase(item.severity)}
+                      </Badge>
+                    )}
+                  </div>
+
+                  <div className="outageDetailPanel__timelineMeta">
+                    <span className="outageDetailPanel__timelineDate">
+                      {isoToDateTime(item.time)}
+                    </span>
+                  </div>
+
+                  <div className="outageDetailPanel__timelineMeta">
+                    {item.stage && (
+                      <Badge className="bg-gray-100 text-gray-900 rounded-full">
+                        {toTitleCase(item.stage)}
+                      </Badge>
+                    )}
+
+                    {typeof item.consumers === "number" && (
+                      <span className="outageDetailPanel__timelineAffected">
+                        {item.consumers.toLocaleString("en-GB")} consumers
+                      </span>
+                    )}
+
+                    {typeof item.affected === "number" && (
+                      <span className="outageDetailPanel__timelineAffected">
+                        {item.affected.toLocaleString("en-GB")} affected
+                      </span>
+                    )}
+                  </div>
                 </div>
-                <div className="outageDetailPanel__timelineMeta">
-                  <span className="outageDetailPanel__timelineDate">19:00 01/02/2025</span>
-                  <span className="outageDetailPanel__timelineBadge outageDetailPanel__timelineBadge--stage">
-                    Stage 1
-                  </span>
-                  <span className="outageDetailPanel__timelineAffected">90,000 consumers</span>
-                </div>
-              </div>
-            </li>
-            <li className="outageDetailPanel__timelineItem">
-              <div
-                className="outageDetailPanel__timelineIcon outageDetailPanel__timelineIcon--success"
-                aria-hidden="true"
-              />
-              <div className="outageDetailPanel__timelineContent">
-                <div className="outageDetailPanel__timelineRow">
-                  <span className="outageDetailPanel__timelineLabel">Outage update issued</span>
-                  <span className="outageDetailPanel__timelineBadge outageDetailPanel__timelineBadge--major">
-                    Major
-                  </span>
-                </div>
-                <div className="outageDetailPanel__timelineMeta">
-                  <span className="outageDetailPanel__timelineDate">19:00 01/02/2025</span>
-                  <span className="outageDetailPanel__timelineBadge outageDetailPanel__timelineBadge--stage">
-                    Stage 2
-                  </span>
-                  <span className="outageDetailPanel__timelineAffected">120,000 affected</span>
-                </div>
-              </div>
-            </li>
-            <li className="outageDetailPanel__timelineItem">
-              <div
-                className="outageDetailPanel__timelineIcon outageDetailPanel__timelineIcon--success"
-                aria-hidden="true"
-              />
-              <div className="outageDetailPanel__timelineContent">
-                <div className="outageDetailPanel__timelineRow">
-                  <span className="outageDetailPanel__timelineLabel">Awaiting next update</span>
-                  <span className="outageDetailPanel__timelineBadge outageDetailPanel__timelineBadge--major">
-                    Major
-                  </span>
-                </div>
-                <div className="outageDetailPanel__timelineMeta">
-                  <span className="outageDetailPanel__timelineDate">19:00 01/02/2025</span>
-                  <span className="outageDetailPanel__timelineBadge outageDetailPanel__timelineBadge--stage">
-                    Stage 2
-                  </span>
-                  <span className="outageDetailPanel__timelineAffected">120,000 affected</span>
-                </div>
-              </div>
-            </li>
+              </li>
+            ))}
           </ol>
         </section>
       </aside>
