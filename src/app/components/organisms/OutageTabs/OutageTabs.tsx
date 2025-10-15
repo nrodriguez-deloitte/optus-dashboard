@@ -23,7 +23,7 @@ export const OutageTabs = (props: IOutageTabsProps) => {
         <TabsList className="w-full">
           {OUTAGE_TABS.map((tab, tabIndex) => {
             return (
-              <TabsTrigger key={tabIndex} value={toKebabCase(tab.label)}>
+              <TabsTrigger key={tabIndex} className="cursor-pointer" value={toKebabCase(tab.label)}>
                 {tab.label}
               </TabsTrigger>
             );
