@@ -14,7 +14,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 1200,
       region: "Liverpool, NSW",
       causeOfOutage: "Under investigation",
-      commsRecords: "#",
       status: "Resolved",
     },
     {
@@ -27,7 +26,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 3500,
       region: "Sydney CBD, NSW",
       causeOfOutage: "Fibre network issue",
-      commsRecords: "#",
       status: "Active",
     },
     {
@@ -40,7 +38,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 5000,
       region: "Melbourne, VIC",
       causeOfOutage: "Data center outage",
-      commsRecords: "#",
       status: "Active",
     },
     {
@@ -53,7 +50,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 2000,
       region: "Brisbane, QLD",
       causeOfOutage: "Server failure",
-      commsRecords: "#",
       status: "Resolved",
     },
     {
@@ -66,7 +62,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 300,
       region: "Perth, WA",
       causeOfOutage: "Network latency",
-      commsRecords: "#",
       status: "Active",
     },
     {
@@ -79,7 +74,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 22000,
       region: "Perth, WA",
       causeOfOutage: "Network latency",
-      commsRecords: "#",
       status: "Active",
     },
     {
@@ -92,7 +86,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 1200,
       region: "Liverpool, NSW",
       causeOfOutage: "Under investigation",
-      commsRecords: "#",
       status: "Resolved",
     },
     {
@@ -105,7 +98,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 3500,
       region: "Sydney CBD, NSW",
       causeOfOutage: "Fibre network issue",
-      commsRecords: "#",
       status: "Active",
     },
     {
@@ -118,7 +110,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 900,
       region: "Ballina, NSW",
       causeOfOutage: "Fibre network issue",
-      commsRecords: "#",
       status: "Active",
     },
     {
@@ -131,7 +122,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 5000,
       region: "Melbourne, VIC",
       causeOfOutage: "Data center outage",
-      commsRecords: "#",
       status: "Active",
     },
     {
@@ -144,7 +134,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 2000,
       region: "Brisbane, QLD",
       causeOfOutage: "Server failure",
-      commsRecords: "#",
       status: "Resolved",
     },
     {
@@ -157,7 +146,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 300,
       region: "Perth, WA",
       causeOfOutage: "Network latency",
-      commsRecords: "#",
       status: "Active",
     },
     {
@@ -170,7 +158,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 800,
       region: "Canberra, ACT",
       causeOfOutage: "Security breach",
-      commsRecords: "#",
       status: "Resolved",
     },
     {
@@ -183,7 +170,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 1500,
       region: "Hobart, TAS",
       causeOfOutage: "Power outage",
-      commsRecords: "#",
       status: "Active",
     },
     {
@@ -196,7 +182,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 2100,
       region: "Gold Coast, QLD",
       causeOfOutage: "Application downtime",
-      commsRecords: "#",
       status: "Active",
     },
     {
@@ -209,7 +194,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 400,
       region: "Adelaide, SA",
       causeOfOutage: "User access issue",
-      commsRecords: "#",
       status: "Resolved",
     },
     {
@@ -222,7 +206,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 3200,
       region: "Darwin, NT",
       causeOfOutage: "DNS failure",
-      commsRecords: "#",
       status: "Active",
     },
     {
@@ -235,7 +218,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 600,
       region: "Wollongong, NSW",
       causeOfOutage: "Hardware failure",
-      commsRecords: "#",
       status: "Resolved",
     },
     {
@@ -248,7 +230,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 2100,
       region: "Geelong, VIC",
       causeOfOutage: "Upstream provider",
-      commsRecords: "#",
       status: "Active",
     },
     {
@@ -261,7 +242,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 5000,
       region: "Townsville, QLD",
       causeOfOutage: "Fiber break",
-      commsRecords: "#",
       status: "Active",
     },
     {
@@ -274,7 +254,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 1800,
       region: "Newcastle, NSW",
       causeOfOutage: "Power instability",
-      commsRecords: "#",
       status: "Resolved",
     },
     {
@@ -287,7 +266,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 250,
       region: "Sunshine Coast, QLD",
       causeOfOutage: "AP hardware",
-      commsRecords: "#",
       status: "Active",
     },
     {
@@ -300,7 +278,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 4100,
       region: "Launceston, TAS",
       causeOfOutage: "Construction accident",
-      commsRecords: "#",
       status: "Active",
     },
     {
@@ -313,7 +290,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 3700,
       region: "Bendigo, VIC",
       causeOfOutage: "DDoS attack",
-      commsRecords: "#",
       status: "Resolved",
     },
     {
@@ -326,7 +302,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 150,
       region: "Cairns, QLD",
       causeOfOutage: "Cooling system",
-      commsRecords: "#",
       status: "Active",
     },
     {
@@ -339,7 +314,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 1100,
       region: "Toowoomba, QLD",
       causeOfOutage: "Firmware bug",
-      commsRecords: "#",
       status: "Active",
     },
     {
@@ -352,7 +326,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 2900,
       region: "Ballarat, VIC",
       causeOfOutage: "Flood",
-      commsRecords: "#",
       status: "Resolved",
     },
     {
@@ -365,7 +338,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 700,
       region: "Albury, NSW",
       causeOfOutage: "Scheduled maintenance",
-      commsRecords: "#",
       status: "Active",
     },
     {
@@ -378,7 +350,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 350,
       region: "Rockhampton, QLD",
       causeOfOutage: "Switch hardware",
-      commsRecords: "#",
       status: "Active",
     },
     {
@@ -391,7 +362,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 2100,
       region: "Mackay, QLD",
       causeOfOutage: "Server crash",
-      commsRecords: "#",
       status: "Resolved",
     },
     {
@@ -404,7 +374,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 4200,
       region: "Wagga Wagga, NSW",
       causeOfOutage: "Bridge construction",
-      commsRecords: "#",
       status: "Active",
     },
     {
@@ -417,7 +386,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 1300,
       region: "Shepparton, VIC",
       causeOfOutage: "Config error",
-      commsRecords: "#",
       status: "Active",
     },
     {
@@ -430,7 +398,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 1700,
       region: "Mildura, VIC",
       causeOfOutage: "ISP routing",
-      commsRecords: "#",
       status: "Resolved",
     },
     {
@@ -443,7 +410,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 3900,
       region: "Port Macquarie, NSW",
       causeOfOutage: "Grid failure",
-      commsRecords: "#",
       status: "Active",
     },
     {
@@ -456,7 +422,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 200,
       region: "Bathurst, NSW",
       causeOfOutage: "Fire alarm",
-      commsRecords: "#",
       status: "Active",
     },
     {
@@ -469,7 +434,6 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 800,
       region: "Orange, NSW",
       causeOfOutage: "Cooling plant",
-      commsRecords: "#",
       status: "Resolved",
     },
     {
@@ -482,14 +446,13 @@ export const DUMMY_CONSTANTS = {
       totalAffected: 2600,
       region: "Dubbo, NSW",
       causeOfOutage: "Router reboot",
-      commsRecords: "#",
       status: "Active",
     },
   ],
   COMMS_RECORDS: [
     {
       customerId: "CU123402",
-      outageId: "INC102948",
+      outageId: "INC102934", // matches OUTAGES.incidentId
       channel: "SMS",
       templateUsed: "SMS V1.0",
       templateLink: "#",
@@ -499,7 +462,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU32048",
-      outageId: "INC102948",
+      outageId: "INC204854", // matches OUTAGES.incidentId
       channel: "Email",
       templateUsed: "Email V1.3",
       templateLink: "#",
@@ -509,7 +472,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU987654",
-      outageId: "INC102949",
+      outageId: "INC305765", // matches OUTAGES.incidentId
       channel: "SMS",
       templateUsed: "SMS V2.0",
       templateLink: "#",
@@ -519,7 +482,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU543216",
-      outageId: "INC102950",
+      outageId: "INC406876", // matches OUTAGES.incidentId
       channel: "SMS",
       templateUsed: "SMS V1.1",
       templateLink: "#",
@@ -529,7 +492,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU432198",
-      outageId: "INC102951",
+      outageId: "INC507987", // matches OUTAGES.incidentId
       channel: "SMS",
       templateUsed: "Chat V2.2",
       templateLink: "#",
@@ -539,7 +502,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU876543",
-      outageId: "INC102952",
+      outageId: "INC608097", // matches OUTAGES.incidentId
       channel: "Email",
       templateUsed: "Email V1.5",
       templateLink: "#",
@@ -549,7 +512,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU123456",
-      outageId: "INC102953",
+      outageId: "INC608098", // matches OUTAGES.incidentId
       channel: "Email",
       templateUsed: "Email V1.0",
       templateLink: "#",
@@ -559,7 +522,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU654321",
-      outageId: "INC102954",
+      outageId: "INC709209", // matches OUTAGES.incidentId
       channel: "Email",
       templateUsed: "Email V1.2",
       templateLink: "#",
@@ -569,7 +532,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU789012",
-      outageId: "INC102955",
+      outageId: "INC810320", // matches OUTAGES.incidentId
       channel: "Email",
       templateUsed: "Email V1.0",
       templateLink: "#",
@@ -579,7 +542,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU234567",
-      outageId: "INC102956",
+      outageId: "INC911421", // matches OUTAGES.incidentId
       channel: "SMS",
       templateUsed: "SMS V2.1",
       templateLink: "#",
@@ -589,7 +552,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU345678",
-      outageId: "INC102957",
+      outageId: "INC100001", // matches OUTAGES.incidentId
       channel: "Email",
       templateUsed: "Email V1.4",
       templateLink: "#",
@@ -599,7 +562,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU456789",
-      outageId: "INC102958",
+      outageId: "INC100002", // matches OUTAGES.incidentId
       channel: "SMS",
       templateUsed: "SMS V2.2",
       templateLink: "#",
@@ -609,7 +572,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU567890",
-      outageId: "INC102959",
+      outageId: "INC100003", // matches OUTAGES.incidentId
       channel: "Email",
       templateUsed: "Email V1.6",
       templateLink: "#",
@@ -619,7 +582,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU678901",
-      outageId: "INC102960",
+      outageId: "INC100004", // matches OUTAGES.incidentId
       channel: "SMS",
       templateUsed: "SMS V1.3",
       templateLink: "#",
@@ -629,7 +592,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU789123",
-      outageId: "INC102961",
+      outageId: "INC100005", // matches OUTAGES.incidentId
       channel: "Email",
       templateUsed: "Email V1.7",
       templateLink: "#",
@@ -639,7 +602,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU891234",
-      outageId: "INC102962",
+      outageId: "INC100006", // matches OUTAGES.incidentId
       channel: "SMS",
       templateUsed: "SMS V2.3",
       templateLink: "#",
@@ -649,7 +612,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU912345",
-      outageId: "INC102963",
+      outageId: "INC100007", // matches OUTAGES.incidentId
       channel: "Email",
       templateUsed: "Email V1.8",
       templateLink: "#",
@@ -659,7 +622,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU102345",
-      outageId: "INC102964",
+      outageId: "INC100008", // matches OUTAGES.incidentId
       channel: "SMS",
       templateUsed: "SMS V1.4",
       templateLink: "#",
@@ -669,7 +632,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU112345",
-      outageId: "INC102965",
+      outageId: "INC100009", // matches OUTAGES.incidentId
       channel: "Email",
       templateUsed: "Email V1.9",
       templateLink: "#",
@@ -679,7 +642,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU122345",
-      outageId: "INC102966",
+      outageId: "INC100010", // matches OUTAGES.incidentId
       channel: "SMS",
       templateUsed: "SMS V2.4",
       templateLink: "#",
@@ -689,7 +652,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU132345",
-      outageId: "INC102967",
+      outageId: "INC100011", // matches OUTAGES.incidentId
       channel: "Email",
       templateUsed: "Email V2.0",
       templateLink: "#",
@@ -699,7 +662,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU142345",
-      outageId: "INC102968",
+      outageId: "INC100012", // matches OUTAGES.incidentId
       channel: "SMS",
       templateUsed: "SMS V1.5",
       templateLink: "#",
@@ -709,7 +672,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU152345",
-      outageId: "INC102969",
+      outageId: "INC100013", // matches OUTAGES.incidentId
       channel: "Email",
       templateUsed: "Email V2.1",
       templateLink: "#",
@@ -719,7 +682,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU162345",
-      outageId: "INC102970",
+      outageId: "INC100014", // matches OUTAGES.incidentId
       channel: "SMS",
       templateUsed: "SMS V2.5",
       templateLink: "#",
@@ -729,7 +692,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU172345",
-      outageId: "INC102971",
+      outageId: "INC100015", // matches OUTAGES.incidentId
       channel: "Email",
       templateUsed: "Email V2.2",
       templateLink: "#",
@@ -739,7 +702,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU182345",
-      outageId: "INC102972",
+      outageId: "INC100016", // matches OUTAGES.incidentId
       channel: "SMS",
       templateUsed: "SMS V1.6",
       templateLink: "#",
@@ -749,7 +712,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU192345",
-      outageId: "INC102973",
+      outageId: "INC100017", // matches OUTAGES.incidentId
       channel: "Email",
       templateUsed: "Email V2.3",
       templateLink: "#",
@@ -759,7 +722,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU202345",
-      outageId: "INC102974",
+      outageId: "INC100018", // matches OUTAGES.incidentId
       channel: "SMS",
       templateUsed: "SMS V2.6",
       templateLink: "#",
@@ -769,7 +732,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU212345",
-      outageId: "INC102975",
+      outageId: "INC100019", // matches OUTAGES.incidentId
       channel: "Email",
       templateUsed: "Email V2.4",
       templateLink: "#",
@@ -779,7 +742,7 @@ export const DUMMY_CONSTANTS = {
     },
     {
       customerId: "CU222345",
-      outageId: "INC102976",
+      outageId: "INC100020", // matches OUTAGES.incidentId
       channel: "SMS",
       templateUsed: "SMS V1.7",
       templateLink: "#",

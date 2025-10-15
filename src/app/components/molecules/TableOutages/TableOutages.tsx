@@ -1,5 +1,6 @@
 import { FilterIcon } from "lucide-react";
 import { MaterialReactTable, MRT_ColumnDef, MRT_TableOptions } from "material-react-table";
+import Link from "next/link";
 import React, { useMemo } from "react";
 
 import { IOutageProps, useDataOutage } from "@/app/contexts/DataContext";
@@ -31,12 +32,12 @@ const TableOutages: React.FC<TableOutagesProps> = () => {
         header: "Cause of outage",
       },
       {
-        accessorKey: "commsRecords",
+        accessorKey: "incidentId",
         header: "Comms records",
         Cell: ({ cell }): React.ReactNode => (
-          <a href={cell.getValue<string>()} target="_blank" rel="noreferrer">
+          <Link href={`/records?incidentId=${cell.getValue<string>()}`} rel="noreferrer">
             View comms record
-          </a>
+          </Link>
         ),
       },
       {

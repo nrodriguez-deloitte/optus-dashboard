@@ -1,6 +1,6 @@
 import { FilterIcon } from "lucide-react";
 import { MaterialReactTable, MRT_ColumnDef, MRT_TableOptions } from "material-react-table";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import React from "react";
 
 import { ICommsRecordProps, useDataOutage } from "@/app/contexts/DataContext";
@@ -10,6 +10,16 @@ import { TableRecordsProps } from "./TableRecords.types";
 
 const TableRecords: React.FC<TableRecordsProps> = () => {
   const { outageData, loading } = useDataOutage();
+
+  // Get incidentId from URL query params on page load
+  const [incidentId, setIncidentId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      setIncidentId(params.get("incidentId"));
+    }
+  }, []);
 
   const columns = useMemo<MRT_ColumnDef<ICommsRecordProps>[]>(
     () => [
@@ -25,15 +35,6 @@ const TableRecords: React.FC<TableRecordsProps> = () => {
         accessorKey: "channel",
         header: "Channel",
       },
-      // {
-      //   accessorKey: "templateUsed",
-      //   header: "Template used",
-      //   Cell: ({ cell }): React.ReactNode => (
-      //     <a href={cell.getValue<string>()} target="_blank" rel="noreferrer">
-      //       {cell.getValue<string>()}
-      //     </a>
-      //   ),
-      // },
       {
         accessorKey: "sentAt",
         header: "Sent at",
@@ -50,6 +51,15 @@ const TableRecords: React.FC<TableRecordsProps> = () => {
     []
   );
 
+  // Set the initial global filter to incidentId if present
+  const [globalFilter, setGlobalFilter] = useState<string>("");
+
+  useEffect(() => {
+    if (incidentId) {
+      setGlobalFilter(incidentId);
+    }
+  }, [incidentId]);
+
   const tableProps = useMemo<MRT_TableOptions<ICommsRecordProps>>(
     () => ({
       columns,
@@ -61,7 +71,9 @@ const TableRecords: React.FC<TableRecordsProps> = () => {
       enableHiding: false,
       state: {
         isLoading: loading,
+        globalFilter,
       },
+      onGlobalFilterChange: setGlobalFilter,
       renderTopToolbarCustomActions: () => (
         <div className="records__label">
           <FilterIcon />
@@ -69,7 +81,7 @@ const TableRecords: React.FC<TableRecordsProps> = () => {
         </div>
       ),
     }),
-    [columns, outageData?.COMMS_RECORDS, loading]
+    [columns, outageData?.COMMS_RECORDS, loading, globalFilter]
   );
 
   return <MaterialReactTable {...tableProps} />;
