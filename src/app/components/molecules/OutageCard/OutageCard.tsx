@@ -7,7 +7,7 @@ import "./OutageCard.styles.scss";
 
 /** Primary UI component for user interaction */
 export const OutageCard = (outage: IOutageProps) => {
-  const { title, severity, stage, created, totalAffected } = outage;
+  const { title, severity, stage, identifiedAt, totalAffected } = outage;
 
   const getSeverityVariant = (severity: string) => {
     switch (severity) {
@@ -36,7 +36,7 @@ export const OutageCard = (outage: IOutageProps) => {
         </CardHeader>
 
         <CardContent className="outage-item__content">
-          <p>{created ? formatCreationTime(created) : "Resolved"}</p>
+          <p>{identifiedAt ? formatCreationTime(identifiedAt) : "Resolved"}</p>
         </CardContent>
 
         <CardFooter className="outage-item__footer">
