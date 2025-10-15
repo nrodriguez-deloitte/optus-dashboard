@@ -117,3 +117,23 @@ export function isoToDateTime(isoString: string): string {
 
   return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
 }
+
+/**
+ * Returns the corresponding Tailwind CSS class names for a given severity level.
+ *
+ * @param severity - The severity level as a string. Supported values are "major" and "significant".
+ * @returns The Tailwind CSS class names for background and text color based on severity,
+ *          or `undefined` if the severity does not match any known case.
+ */
+export const getSeverityVariant = (severity: string) => {
+  switch (severity) {
+    case "major":
+      return "bg-red-100 text-red-900";
+
+    case "significant":
+      return "bg-amber-200 text-amber-900";
+
+    default:
+      break;
+  }
+};

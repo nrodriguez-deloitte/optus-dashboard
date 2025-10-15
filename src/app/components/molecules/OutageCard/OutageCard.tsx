@@ -1,26 +1,13 @@
 import { IOutageProps } from "@/app/contexts/DataContext";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { formatCreationTime, toTitleCase } from "@/lib/utils";
+import { formatCreationTime, getSeverityVariant, toTitleCase } from "@/lib/utils";
 
 import "./OutageCard.styles.scss";
 
 /** Primary UI component for user interaction */
 export const OutageCard = (outage: IOutageProps) => {
   const { title, severity, stage, identifiedAt, totalAffected } = outage;
-
-  const getSeverityVariant = (severity: string) => {
-    switch (severity) {
-      case "major":
-        return "bg-red-100 text-red-900";
-
-      case "significant":
-        return "bg-amber-200 text-amber-900";
-
-      default:
-        break;
-    }
-  };
 
   return (
     <li>
