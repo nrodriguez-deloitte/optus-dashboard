@@ -13,7 +13,7 @@ export interface IOutageProps {
   totalAffected: number;
 }
 
-interface ICommsRecordProps {
+export interface ICommsRecordProps {
   customerId: string;
   outageId: string;
   channel: string;
