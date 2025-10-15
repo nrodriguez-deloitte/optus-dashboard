@@ -4,12 +4,12 @@ import { DUMMY_CONSTANTS } from "@/lib/dummy-constants";
 
 // Create the context
 export interface IOutageProps {
-  id: string;
+  incidentId: string;
   title: string;
   type: string;
   severity: string;
   stage: string;
-  created: string;
+  identifiedAt: string;
   totalAffected: number;
 }
 
