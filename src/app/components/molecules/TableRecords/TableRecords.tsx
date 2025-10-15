@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import React from "react";
 
 import { ICommsRecordProps, useDataOutage } from "@/app/contexts/DataContext";
+import { isoToDateTime } from "@/lib/utils";
 
 import "./TableRecords.styles.scss";
 import { TableRecordsProps } from "./TableRecords.types";
@@ -28,7 +29,7 @@ const TableRecords: React.FC<TableRecordsProps> = () => {
         header: "Customer ID",
       },
       {
-        accessorKey: "outageId",
+        accessorKey: "incidentId",
         header: "Outage ID",
       },
       {
@@ -38,6 +39,7 @@ const TableRecords: React.FC<TableRecordsProps> = () => {
       {
         accessorKey: "sentAt",
         header: "Sent at",
+        Cell: ({ cell }): React.ReactNode => isoToDateTime(cell.getValue<string>()),
       },
       {
         accessorKey: "region",

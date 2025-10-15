@@ -32,10 +32,10 @@ const TableOutages: React.FC<TableOutagesProps> = () => {
         header: "Cause of outage",
       },
       {
-        accessorKey: "incidentId",
+        accessorKey: "communicationId",
         header: "Comms records",
-        Cell: ({ cell }): React.ReactNode => (
-          <Link href={`/records?incidentId=${cell.getValue<string>()}`} rel="noreferrer">
+        Cell: ({ row }): React.ReactNode => (
+          <Link href={`/records?incidentId=${row.original.incidentId}`} rel="noreferrer">
             View comms record
           </Link>
         ),
