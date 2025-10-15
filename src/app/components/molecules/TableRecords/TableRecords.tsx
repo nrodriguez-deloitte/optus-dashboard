@@ -25,15 +25,15 @@ const TableRecords: React.FC<TableRecordsProps> = () => {
         accessorKey: "channel",
         header: "Channel",
       },
-      {
-        accessorKey: "templateUsed",
-        header: "Template used",
-        Cell: ({ cell }): React.ReactNode => (
-          <a href={cell.getValue<string>()} target="_blank" rel="noreferrer">
-            {cell.getValue<string>()}
-          </a>
-        ),
-      },
+      // {
+      //   accessorKey: "templateUsed",
+      //   header: "Template used",
+      //   Cell: ({ cell }): React.ReactNode => (
+      //     <a href={cell.getValue<string>()} target="_blank" rel="noreferrer">
+      //       {cell.getValue<string>()}
+      //     </a>
+      //   ),
+      // },
       {
         accessorKey: "sentAt",
         header: "Sent at",
