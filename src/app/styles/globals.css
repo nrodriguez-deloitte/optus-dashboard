@@ -135,13 +135,27 @@ body {
 
 .main {
   background: url("/background-gradient.png") no-repeat center center;
-  height: 100vh;
+  min-height: 100vh;
   padding: 32px 24px;
 
   h2 {
     font-family: var(--font-family-heading, Inter);
     font-size: var(--text-2xl);
     font-weight: 600;
+  }
+
+  a {
+    color: #2563eb;
+  }
+
+  .MuiPaper-root {
+    border: 0;
+    box-shadow: unset;
+  }
+
+  .MuiPaper-root > .MuiBox-root {
+    padding-left: 8px;
+    padding-right: 8px;
   }
 }
 
@@ -175,7 +189,6 @@ body {
     text-align: center;
   }
 }
-
 .map-container {
   background: url("/background-gradient.png") no-repeat center center;
 }
@@ -196,5 +209,14 @@ body {
     font-size: var(--text-lg);
     font-weight: 500;
     gap: 6px;
+    padding: 8px 0;
+  }
+
+  .records-card {
+    padding: 8px 0;
+  }
+
+  .records-card__content {
+    padding: 0;
   }
 }

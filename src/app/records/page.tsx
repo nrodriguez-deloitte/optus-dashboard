@@ -1,9 +1,8 @@
 "use client";
 
-import { FilterIcon } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-
+import TableRecords from "../components/molecules/TableRecords";
 import { Navigation } from "../components/organisms/Navigation";
 import { DataProvider } from "../contexts/DataContext";
 
@@ -17,15 +16,10 @@ export default function Records() {
 
         <p>Filter, find and extract notification records sent to customers during an outage</p>
 
-        <Card>
-          <CardHeader>
-            <div className="records__label">
-              <FilterIcon />
-              Filters
-            </div>
-          </CardHeader>
-
-          <CardContent>Table</CardContent>
+        <Card className="records-card">
+          <CardContent className="records-card__content">
+            <TableRecords />
+          </CardContent>
         </Card>
       </main>
     </DataProvider>
