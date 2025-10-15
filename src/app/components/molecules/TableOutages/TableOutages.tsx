@@ -3,7 +3,7 @@ import { MaterialReactTable, MRT_ColumnDef, MRT_TableOptions } from "material-re
 import React, { useMemo } from "react";
 
 import { IOutageProps, useDataOutage } from "@/app/contexts/DataContext";
-import { formatCreationTime, isoToDateTime, toTitleCase } from "@/lib/utils";
+import { isoToDateTime, toTitleCase } from "@/lib/utils";
 
 import "./TableOutages.styles.scss";
 import { TableOutagesProps } from "./TableOutages.types";
@@ -71,7 +71,7 @@ const TableOutages: React.FC<TableOutagesProps> = () => {
         </div>
       ),
     }),
-    [columns, outageData?.COMMS_RECORDS, loading]
+    [columns, outageData?.OUTAGES, loading]
   );
 
   return <MaterialReactTable {...tableProps} />;

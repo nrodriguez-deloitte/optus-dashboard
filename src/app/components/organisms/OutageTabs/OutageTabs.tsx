@@ -52,7 +52,7 @@ export const OutageTabs = (props: IOutageTabsProps) => {
           OUTAGE_TABS.map((tab, tabIndex) => {
             const CONTENT = outageData.OUTAGES.filter(
               (outage) => outage.type === toKebabCase(tab.label)
-            ).map((outage) => <OutageCard key={outage.id} {...outage} />);
+            ).map((outage) => <OutageCard key={outage.incidentId} {...outage} />);
             console.log(CONTENT);
             return (
               <TabsContent
