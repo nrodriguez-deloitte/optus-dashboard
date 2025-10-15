@@ -13,13 +13,25 @@ export interface IOutageProps {
   totalAffected: number;
 }
 
+interface ICommsRecordProps {
+  customerId: string;
+  outageId: string;
+  channel: string;
+  templateUsed: string;
+  sentAt: string;
+  region: string;
+  status: string;
+}
+
 interface IDataContextProps {
   LAST_UPDATED: string;
   ACMA_OUTAGES: number;
   ONGOING_ACMA_OUTAGES: number;
   UNPLANNED_OUTAGES: number;
   OUTAGES: Array<IOutageProps>;
+  COMMS_RECORDS: Array<ICommsRecordProps>;
 }
+
 const DataContext = createContext<
   | {
       outageData: IDataContextProps;
