@@ -19,7 +19,7 @@ export const OutageTabs = (props: IOutageTabsProps) => {
     <div id={id} className="outage-tabs">
       <h2 className="sr-only">Outage Tabs</h2>
 
-      <Tabs defaultValue={toKebabCase(OUTAGE_TABS[0].label)} className="w-full gap-4">
+      <Tabs defaultValue={toKebabCase(OUTAGE_TABS[0].label)} className="w-full">
         <TabsList className="w-full">
           {OUTAGE_TABS.map((tab, tabIndex) => {
             return (
@@ -31,7 +31,7 @@ export const OutageTabs = (props: IOutageTabsProps) => {
         </TabsList>
 
         {loading ? (
-          <Card className="outage-item gap-2 w-1/2 md:w-1/2 xl:w-1/4">
+          <Card className="outage-item gap-2 w-full">
             <CardHeader className="outage-item__header">
               <div className="animate-pulse h-5 w-full mb-1 rounded-full bg-gray-200" />
 
@@ -53,14 +53,14 @@ export const OutageTabs = (props: IOutageTabsProps) => {
             const CONTENT = outageData.OUTAGES.filter(
               (outage) => outage.type === toKebabCase(tab.label)
             ).map((outage) => <OutageCard key={outage.id} {...outage} />);
-
+            console.log(CONTENT);
             return (
               <TabsContent
                 key={tabIndex}
                 value={toKebabCase(tab.label)}
                 className="outage-tabs__content"
               >
-                {CONTENT}
+                <ul>{CONTENT}</ul>
               </TabsContent>
             );
           })

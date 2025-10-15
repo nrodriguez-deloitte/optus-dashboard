@@ -23,27 +23,29 @@ export const OutageCard = (outage: IOutageProps) => {
   };
 
   return (
-    <Card className="outage-item gap-2 w-1/2 md:w-1/2 xl:w-1/4">
-      <CardHeader className="outage-item__header">
-        <h3>{title}</h3>
+    <li>
+      <Card className="outage-item">
+        <CardHeader className="outage-item__header">
+          <h3>{title}</h3>
 
-        {severity && (
-          <Badge className={`rounded-full ${getSeverityVariant(severity)}`}>
-            {toTitleCase(severity)}
-          </Badge>
-        )}
-      </CardHeader>
+          {severity && (
+            <Badge className={`rounded-full ${getSeverityVariant(severity)}`}>
+              {toTitleCase(severity)}
+            </Badge>
+          )}
+        </CardHeader>
 
-      <CardContent className="outage-item__content">
-        <p>{created ? formatCreationTime(created) : "Resolved"}</p>
-      </CardContent>
+        <CardContent className="outage-item__content">
+          <p>{created ? formatCreationTime(created) : "Resolved"}</p>
+        </CardContent>
 
-      <CardFooter className="outage-item__footer">
-        <Badge className="bg-gray-100 text-gray-900 rounded-full">{toTitleCase(stage)}</Badge>
+        <CardFooter className="outage-item__footer">
+          <Badge className="bg-gray-100 text-gray-900 rounded-full">{toTitleCase(stage)}</Badge>
 
-        <p>{totalAffected.toLocaleString("en-GB")} affected</p>
-      </CardFooter>
-    </Card>
+          <p>{totalAffected.toLocaleString("en-GB")} affected</p>
+        </CardFooter>
+      </Card>
+    </li>
   );
 };
 
