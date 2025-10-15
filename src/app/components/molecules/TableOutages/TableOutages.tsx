@@ -1,3 +1,5 @@
+"use client";
+
 import { FilterIcon } from "lucide-react";
 import { MaterialReactTable, MRT_ColumnDef, MRT_TableOptions } from "material-react-table";
 import Link from "next/link";
@@ -9,7 +11,7 @@ import { isoToDateTime, toTitleCase } from "@/lib/utils";
 import "./TableOutages.styles.scss";
 import { TableOutagesProps } from "./TableOutages.types";
 
-const TableOutages: React.FC<TableOutagesProps> = () => {
+const TableOutages: React.FC<TableOutagesProps> = ({ onRowClick }) => {
   const { outageData, loading } = useDataOutage();
 
   const columns = useMemo<MRT_ColumnDef<IOutageProps>[]>(
@@ -57,7 +59,6 @@ const TableOutages: React.FC<TableOutagesProps> = () => {
     () => ({
       columns,
       data: outageData?.OUTAGES || [],
-      muiTableBodyRowProps: { hover: true },
       enableColumnActions: false,
       enableDensityToggle: false,
       enableFullScreenToggle: false,
@@ -65,6 +66,14 @@ const TableOutages: React.FC<TableOutagesProps> = () => {
       state: {
         isLoading: loading,
       },
+      muiTableBodyRowProps: ({ row }) => ({
+        onClick: () => {
+          if (onRowClick) {
+            onRowClick(row.original.incidentId);
+          }
+        },
+        sx: { cursor: "pointer" },
+      }),
       renderTopToolbarCustomActions: () => (
         <div className="records__label">
           <FilterIcon />
@@ -72,7 +81,7 @@ const TableOutages: React.FC<TableOutagesProps> = () => {
         </div>
       ),
     }),
-    [columns, outageData?.OUTAGES, loading]
+    [columns, outageData?.OUTAGES, loading, onRowClick]
   );
 
   return <MaterialReactTable {...tableProps} />;
