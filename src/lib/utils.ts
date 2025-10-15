@@ -92,3 +92,28 @@ export function formatCreationTime(input: string) {
     return `Identified on ${day}/${month}/${year}`;
   }
 }
+
+/**
+ * Converts an ISO 8601 date string to "DD/MM/YYYY HH:mm:ss" format.
+ *
+ * Example:
+ *   isoToDateTime("2025-06-17T01:00:49Z") // "17/06/2025 01:00:49"
+ *
+ * @param isoString - The ISO 8601 date string.
+ * @returns The formatted date and time string.
+ */
+export function isoToDateTime(isoString: string): string {
+  const date = new Date(isoString);
+  if (isNaN(date.getTime())) throw new Error("Invalid ISO date string.");
+
+  const pad = (n: number) => n.toString().padStart(2, "0");
+
+  const day = pad(date.getDate());
+  const month = pad(date.getMonth() + 1);
+  const year = date.getFullYear();
+  const hours = pad(date.getHours());
+  const minutes = pad(date.getMinutes());
+  const seconds = pad(date.getSeconds());
+
+  return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+}
