@@ -11,7 +11,7 @@ import "./OutageTabs.styles.scss";
 import { OutageCard } from "../../molecules/OutageCard";
 
 export const OutageTabs = (props: IOutageTabsProps) => {
-  const { id } = props;
+  const { id, onCardClick } = props;
 
   const { outageData, loading } = useDataOutage();
 
@@ -52,8 +52,10 @@ export const OutageTabs = (props: IOutageTabsProps) => {
           OUTAGE_TABS.map((tab, tabIndex) => {
             const CONTENT = outageData.OUTAGES.filter(
               (outage) => outage.type === toKebabCase(tab.label)
-            ).map((outage) => <OutageCard key={outage.incidentId} {...outage} />);
-            console.log(CONTENT);
+            ).map((outage) => (
+              <OutageCard key={outage.incidentId} {...outage} onCardClick={onCardClick} />
+            ));
+
             return (
               <TabsContent
                 key={tabIndex}
