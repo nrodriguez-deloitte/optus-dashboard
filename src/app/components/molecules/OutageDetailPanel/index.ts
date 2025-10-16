@@ -1,1 +1,1 @@
-export { default } from './OutageDetailPanel';
+export { default } from "./OutageDetailPanel";
