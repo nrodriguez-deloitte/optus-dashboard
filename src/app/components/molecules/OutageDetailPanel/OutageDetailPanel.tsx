@@ -20,6 +20,7 @@ const OutageDetailPanel: React.FC<OutageDetailPanelProps> = ({
   if (loading) {
     return null;
   }
+
   const incidentData = outageData?.OUTAGES.find((outage) => outage.incidentId === _incidentId);
 
   if (!incidentData) {
@@ -29,6 +30,7 @@ const OutageDetailPanel: React.FC<OutageDetailPanelProps> = ({
   const { title, severity, region, totalAffected, description, stage, outageTimeline } =
     incidentData;
 
+  console.log(incidentData);
   return (
     <>
       <div
@@ -142,11 +144,13 @@ const OutageDetailPanel: React.FC<OutageDetailPanelProps> = ({
                     )}
                   </div>
 
-                  <div className="outageDetailPanel__timelineMeta">
-                    <span className="outageDetailPanel__timelineDate">
-                      {isoToDateTime(item.time)}
-                    </span>
-                  </div>
+                  {item.time && (
+                    <div className="outageDetailPanel__timelineMeta">
+                      <span className="outageDetailPanel__timelineDate">
+                        {isoToDateTime(item.time)}
+                      </span>
+                    </div>
+                  )}
 
                   <div className="outageDetailPanel__timelineMeta">
                     {item.stage && (

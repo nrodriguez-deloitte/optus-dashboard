@@ -1,17 +1,29 @@
-import { IOutageProps } from "@/app/contexts/DataContext";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { formatCreationTime, getSeverityVariant, toTitleCase } from "@/lib/utils";
 
+import { IOutageCardProps } from "./IOutageCard.types";
 import "./OutageCard.styles.scss";
 
 /** Primary UI component for user interaction */
-export const OutageCard = (outage: IOutageProps) => {
-  const { title, severity, stage, identifiedAt, totalAffected } = outage;
+export const OutageCard = (outage: IOutageCardProps) => {
+  const { title, severity, stage, identifiedAt, totalAffected, incidentId, onCardClick } = outage;
+
+  const handleClick = () => {
+    if (onCardClick && incidentId) {
+      onCardClick(incidentId);
+    }
+  };
 
   return (
     <li>
-      <Card className="outage-item">
+      <Card
+        className="outage-item"
+        onClick={handleClick}
+        tabIndex={0}
+        role="button"
+        aria-label={`View details for incident ${incidentId}`}
+      >
         <CardHeader className="outage-item__header">
           <h3>{title}</h3>
 
