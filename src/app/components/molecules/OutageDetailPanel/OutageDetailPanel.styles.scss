@@ -2,14 +2,13 @@
   background: #fafafa;
   display: flex;
   flex-direction: column;
-  gap: 10px;
   padding: 24px;
   height: 100%;
   overflow-y: auto;
   position: fixed;
   right: 0;
   top: 0;
-  max-width: 360px;
+  max-width: 390px;
   box-shadow:
     0 4px 24px 0 rgba(16, 24, 40, 0.12),
     0 1.5px 4px 0 rgba(16, 24, 40, 0.08),
@@ -107,7 +106,6 @@
   }
 
   &__title {
-    font-family: "Inter", sans-serif;
     font-weight: 600;
     font-size: 24px;
     line-height: 38px;
@@ -115,7 +113,6 @@
   }
 
   &__updated {
-    font-family: "Inter", sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
@@ -131,33 +128,36 @@
     align-items: center;
   }
 
-  &__button {
+  &__link {
     display: flex;
     align-items: center;
     gap: 8px;
     height: 36px;
     padding: 8px 16px;
-    border-radius: 6px;
-    font-family: "Inter", sans-serif;
+    border-radius: 12px;
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
     cursor: pointer;
     border: none;
-    background: #fff;
-    color: #09090b;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
     &--primary {
       background: #18181b;
-      color: #fafafa;
+      color: #fff !important;
     }
+
     &--secondary {
       border: 1px solid #e4e4e7;
       background: #fff;
-      color: #09090b;
+      color: #09090b !important;
     }
   }
 
-  &__buttonIcon {
+  &__linkIcon {
     width: 16px;
     height: 16px;
     background: #e4e4e7;
@@ -165,7 +165,7 @@
     display: inline-block;
   }
 
-  &__buttonText {
+  &__linkText {
     white-space: nowrap;
   }
 
@@ -193,7 +193,6 @@
   }
 
   &__cardTitle {
-    font-family: "Inter", sans-serif;
     font-weight: 600;
     font-size: 20px;
     line-height: 32px;
@@ -213,7 +212,7 @@
     gap: 4px;
     padding: 2px 8px;
     border-radius: 9999px;
-    font-family: "Inter", sans-serif;
+
     font-size: 12px;
     font-weight: 500;
     line-height: 16px;
@@ -244,7 +243,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    font-family: "Inter", sans-serif;
+
     font-size: 14px;
     font-weight: 500;
     color: #71717a;
@@ -259,7 +258,6 @@
   }
 
   &__cardDesc {
-    font-family: "Inter", sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: #09090b;
@@ -285,14 +283,12 @@
   }
 
   &__complianceLabel {
-    font-family: "Inter", sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: #71717a;
   }
 
   &__complianceValue {
-    font-family: "Inter", sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: #71717a;
@@ -329,7 +325,6 @@
   }
 
   &__timelineTitle {
-    font-family: "Inter", sans-serif;
     font-weight: 600;
     font-size: 24px;
     line-height: 38px;
@@ -337,7 +332,6 @@
   }
 
   &__timelineUpdated {
-    font-family: "Inter", sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
@@ -359,6 +353,20 @@
     align-items: flex-start;
     position: relative;
     min-height: 78px;
+
+    svg {
+      stroke: #4ade80;
+    }
+
+    &:after {
+      background-color: #f4f4f5;
+      content: "";
+      height: calc(100% - 24px);
+      left: 11px;
+      position: absolute;
+      top: 28px;
+      width: 2px;
+    }
   }
 
   &__timelineIcon {
@@ -376,7 +384,6 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 8px;
     padding-bottom: 16px;
   }
 
@@ -388,48 +395,20 @@
   }
 
   &__timelineLabel {
-    font-family: "Inter", sans-serif;
     font-size: 14px;
     font-weight: 600;
     color: #09090b;
     white-space: nowrap;
   }
 
-  &__timelineBadge {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    padding: 2px 8px;
-    border-radius: 9999px;
-    font-family: "Inter", sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 16px;
-    &--significant {
-      background: #fde68a;
-      color: #78350f;
-    }
-    &--major {
-      background: #fecaca;
-      color: #7f1d1d;
-    }
-    &--stage {
-      background: #fef9c3;
-      border: 1px solid #fef08a;
-      color: #713f12;
-    }
-  }
-
   &__timelineMeta {
     display: flex;
     gap: 8px;
     align-items: center;
-    font-family: "Inter", sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: #71717a;
     margin-top: 6px;
-    flex-wrap: wrap;
   }
 
   &__timelineDate {
@@ -438,5 +417,6 @@
 
   &__timelineAffected {
     color: #6b7280;
+    margin-left: auto;
   }
 }
